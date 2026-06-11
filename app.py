@@ -138,6 +138,17 @@ st.markdown("""
         font-weight: 600;
         display: inline-block;
     }
+    .channel-badge-disney {
+        background: linear-gradient(135deg, #1f305e 0%, #111a30 100%);
+        color: #00e5ff;
+        border: 1px solid rgba(0, 229, 255, 0.3);
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        display: inline-block;
+        margin-left: 5px;
+    }
     .channel-badge-exclusive {
         background: rgba(255, 255, 255, 0.08);
         color: #8892b0;
@@ -321,7 +332,9 @@ with st.sidebar:
     st.subheader("🏆 Transmisiones en Chile")
     st.markdown("""
     - **📺 Señal Abierta:** Chilevisión transmite 34 partidos seleccionados.
-    - **🔒 Señal de Pago:** **DSports / DGO / Paramount+** transmite **el 100% de los 104 partidos** en español.
+    - **🔒 Señal de Pago:**
+        - **DSports / DGO / Paramount+** transmite **el 100% de los 104 partidos** en español.
+        - **Disney+ Premium (ESPN)** transmite un paquete selecto de **30 partidos** en vivo (fase de grupos, eliminatorias y final).
     """)
     
     # Botón para restablecer base de datos
@@ -362,7 +375,12 @@ with tab1:
     with col_f1:
         filtro_grupo = st.selectbox("Filtrar por Grupo", ["Todos"] + sorted(list(db["groups"].keys())))
     with col_f2:
-        filtro_canal = st.selectbox("Filtrar por Transmisión", ["Todos", "Señal Abierta (Chilevisión)", "Exclusivos de Pago (DSports/DGO/Paramount+)"])
+        filtro_canal = st.selectbox("Filtrar por Transmisión", [
+            "Todos", 
+            "Señal Abierta (Chilevisión)", 
+            "Exclusivos de Pago (DSports/DGO/Paramount+)",
+            "Disney+ Premium (30 partidos)"
+        ])
     with col_f3:
         filtro_estado = st.selectbox("Filtrar por Estado", ["Todos", "Por jugar", "Finalizados"])
     with col_f4:
@@ -377,6 +395,8 @@ with tab1:
         matches_filtered = [m for m in matches_filtered if m["channel_free"] is not None]
     elif filtro_canal == "Exclusivos de Pago (DSports/DGO/Paramount+)":
         matches_filtered = [m for m in matches_filtered if m["channel_free"] is None]
+    elif filtro_canal == "Disney+ Premium (30 partidos)":
+        matches_filtered = [m for m in matches_filtered if "Disney+ Premium" in m.get("channel_pay", "")]
         
     if filtro_estado == "Por jugar":
         matches_filtered = [m for m in matches_filtered if m["goals_a"] is None]
@@ -420,8 +440,14 @@ with tab1:
                             badge_free = f"<span class='channel-badge-free'>📺 {match['channel_free']}</span>"
                         else:
                             badge_free = "<span class='channel-badge-exclusive'>🔒 Solo por Pago</span>"
-                            
-                        badge_pay = f"<span class='channel-badge-pay'>🔑 {match['channel_pay']}</span>"
+                        # Formatear canales de pago
+                        pay_channels = match["channel_pay"].split(" / ")
+                        main_pay = [c for c in pay_channels if c != "Disney+ Premium"]
+                        main_pay_str = " / ".join(main_pay)
+                        
+                        badge_pay = f"<span class='channel-badge-pay'>🔑 {main_pay_str}</span>"
+                        if "Disney+ Premium" in pay_channels:
+                            badge_pay += " <span class='channel-badge-disney'>✨ Disney+ Premium</span>"
                         
                         card_html = f"""
                         <div class="match-card">
@@ -746,6 +772,19 @@ with tab4:
             st.subheader("📺 Cobertura de Transmisión en Chile")
             free_count = sum(1 for m in db["matches"] if m["channel_free"] is not None)
             pay_count = sum(1 for m in db["matches"] if m["channel_free"] is None)
+            disney_count = sum(1 for m in db["matches"] if "Disney+ Premium" in m.get("channel_pay", ""))
+            
+            st.markdown(f"""
+            <div style='background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);'>
+                <p style='margin: 0;'><b>Distribución de Transmisiones:</b></p>
+                <ul style='margin-bottom: 0;'>
+                    <li>📺 <b>Señal Abierta (Chilevisión):</b> {free_count} partidos</li>
+                    <li>🔑 <b>DSports / DGO / Paramount+:</b> 104 partidos (100% de la Copa Mundial)</li>
+                    <li>✨ <b>Disney+ Premium (ESPN):</b> {disney_count} partidos seleccionados</li>
+                </ul>
+            </div>
+            """, unsafe_allow_html=True)
+            
             coverage_data = pd.DataFrame({
                 "Tipo de Transmisión": ["Chilevisión (Señal Abierta)", "Exclusivos de Pago (DSports/DGO/Paramount+)"],
                 "Cantidad de Partidos": [free_count, pay_count]
