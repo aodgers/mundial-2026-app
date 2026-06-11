@@ -309,7 +309,7 @@ total_goals = sum((m["goals_a"] or 0) + (m["goals_b"] or 0) for m in db["matches
 
 # SIDEBAR / PANEL DE CONTROL
 with st.sidebar:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/4/43/2026_FIFA_World_Cup_logo.svg", width=120)
+    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2026_FIFA_World_Cup_logo.svg/240px-2026_FIFA_World_Cup_logo.svg.png", width=120)
     st.title("Control del Torneo")
     
     st.markdown("---")
@@ -340,7 +340,7 @@ with st.sidebar:
 # CUERPO PRINCIPAL
 col_title1, col_title2 = st.columns([1, 6])
 with col_title1:
-    st.image("https://upload.wikimedia.org/wikipedia/commons/4/43/2026_FIFA_World_Cup_logo.svg", width=100)
+    st.image("https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2026_FIFA_World_Cup_logo.svg/200px-2026_FIFA_World_Cup_logo.svg.png", width=100)
 with col_title2:
     st.markdown("<h1 style='margin-top: 5px; color: white;'>FIFA WORLD CUP 2026</h1>", unsafe_allow_html=True)
     st.markdown("<p style='color: #8892b0; font-size: 1.1rem; margin-top: -15px;'>Calendario Interactivo, Resultados en Vivo y Tabla de Posiciones para Chile</p>", unsafe_allow_html=True)
