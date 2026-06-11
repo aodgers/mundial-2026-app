@@ -455,12 +455,22 @@ with tab1:
                         
                         # Expander para registrar resultados del partido
                         with st.expander(f"✏️ Registrar / Editar Marcador Oficial (Partido {match['id']})"):
+                            new_team_a = match["team_a"]
+                            new_team_b = match["team_b"]
+                            
+                            # Si es partido de eliminación directa (id >= 73), permitir editar nombres de selecciones
+                            if match["id"] >= 73:
+                                st.markdown("<p style='font-size:0.85rem; color:#8892b0; margin-bottom:2px;'>Definir Selecciones Clasificadas:</p>", unsafe_allow_html=True)
+                                col_name1, col_name2 = st.columns(2)
+                                new_team_a = col_name1.text_input(f"Selección A", value=match["team_a"], key=f"name_a_{match['id']}")
+                                new_team_b = col_name2.text_input(f"Selección B", value=match["team_b"], key=f"name_b_{match['id']}")
+                                
                             col_inp1, col_inp2 = st.columns(2)
                             val_a = match["goals_a"] if match["goals_a"] is not None else 0
                             val_b = match["goals_b"] if match["goals_b"] is not None else 0
                             
-                            new_a = col_inp1.number_input(f"Goles {match['team_a']}", min_value=0, max_value=25, value=int(val_a), key=f"inp_a_{match['id']}")
-                            new_b = col_inp2.number_input(f"Goles {match['team_b']}", min_value=0, max_value=25, value=int(val_b), key=f"inp_b_{match['id']}")
+                            new_a = col_inp1.number_input(f"Goles {new_team_a}", min_value=0, max_value=25, value=int(val_a), key=f"inp_a_{match['id']}")
+                            new_b = col_inp2.number_input(f"Goles {new_team_b}", min_value=0, max_value=25, value=int(val_b), key=f"inp_b_{match['id']}")
                             
                             col_btn1, col_btn2 = st.columns(2)
                             if col_btn1.button("Guardar Marcador", key=f"btn_save_{match['id']}"):
@@ -469,6 +479,8 @@ with tab1:
                                     if m["id"] == match["id"]:
                                         m["goals_a"] = new_a
                                         m["goals_b"] = new_b
+                                        m["team_a"] = new_team_a
+                                        m["team_b"] = new_team_b
                                 save_data(db)
                                 st.session_state.db = db
                                 st.success("¡Resultado oficial guardado!")
@@ -480,6 +492,44 @@ with tab1:
                                         if m["id"] == match["id"]:
                                             m["goals_a"] = None
                                             m["goals_b"] = None
+                                            # Volver a los marcadores de posición predeterminados si es eliminatoria
+                                            if m["id"] >= 73:
+                                                placeholders = {
+                                                    73: ("2° Grupo A", "2° Grupo B"),
+                                                    74: ("1° Grupo E", "3° Grupo A/B/C/D/F"),
+                                                    75: ("1° Grupo F", "2° Grupo C"),
+                                                    76: ("1° Grupo C", "2° Grupo F"),
+                                                    77: ("1° Grupo I", "3° Grupo C/D/F/G/H"),
+                                                    78: ("2° Grupo E", "2° Grupo I"),
+                                                    79: ("1° Grupo A", "3° Grupo C/E/F/H/I"),
+                                                    80: ("1° Grupo L", "3° Grupo E/H/I/J/K"),
+                                                    81: ("1° Grupo D", "3° Grupo B/E/F/I/J"),
+                                                    82: ("1° Grupo G", "3° Grupo A/E/H/I/J"),
+                                                    83: ("2° Grupo K", "2° Grupo L"),
+                                                    84: ("1° Grupo H", "2° Grupo J"),
+                                                    85: ("1° Grupo B", "3° Grupo E/F/G/I/J"),
+                                                    86: ("1° Grupo J", "2° Grupo H"),
+                                                    87: ("1° Grupo K", "3° Grupo D/E/I/J/L"),
+                                                    88: ("2° Grupo D", "2° Grupo G"),
+                                                    89: ("Ganador M74", "Ganador M77"),
+                                                    90: ("Ganador M73", "Ganador M75"),
+                                                    91: ("Ganador M76", "Ganador M78"),
+                                                    92: ("Ganador M79", "Ganador M80"),
+                                                    93: ("Ganador M83", "Ganador M84"),
+                                                    94: ("Ganador M81", "Ganador M82"),
+                                                    95: ("Ganador M86", "Ganador M88"),
+                                                    96: ("Ganador M85", "Ganador M87"),
+                                                    97: ("Ganador M89", "Ganador M90"),
+                                                    98: ("Ganador M93", "Ganador M94"),
+                                                    99: ("Ganador M91", "Ganador M92"),
+                                                    100: ("Ganador M95", "Ganador M96"),
+                                                    101: ("Ganador M97", "Ganador M98"),
+                                                    102: ("Ganador M99", "Ganador M100"),
+                                                    103: ("Perdedor M101", "Perdedor M102"),
+                                                    104: ("Ganador M101", "Ganador M102")
+                                                }
+                                                if m["id"] in placeholders:
+                                                    m["team_a"], m["team_b"] = placeholders[m["id"]]
                                     save_data(db)
                                     st.session_state.db = db
                                     st.warning("Marcador oficial limpiado.")
