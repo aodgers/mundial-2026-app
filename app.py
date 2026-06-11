@@ -351,27 +351,37 @@ with tab1:
     st.markdown("<h2 class='section-title'>Calendario e Ingreso de Resultados Reales</h2>", unsafe_allow_html=True)
     
     # Filtros
-    col_f1, col_f2, col_f3 = st.columns(3)
+    col_f1, col_f2, col_f3, col_f4 = st.columns(4)
     with col_f1:
         filtro_grupo = st.selectbox("Filtrar por Grupo", ["Todos"] + sorted(list(db["groups"].keys())))
     with col_f2:
-        filtro_canal = st.selectbox("Filtrar por Transmisión", ["Todos", "En señal abierta (Chilevisión)", "Solo por Pago (DSports/DGO/Paramount+)"])
+        filtro_canal = st.selectbox("Filtrar por Transmisión", ["Todos", "Señal Abierta (Chilevisión)", "Exclusivos de Pago (DSports/DGO/Paramount+)"])
     with col_f3:
         filtro_estado = st.selectbox("Filtrar por Estado", ["Todos", "Por jugar", "Finalizados"])
+    with col_f4:
+        filtro_busqueda = st.text_input("🔍 Buscar Selección", placeholder="Ej: Chile, Argentina")
         
     # Aplicar filtros
     matches_filtered = db["matches"]
     if filtro_grupo != "Todos":
         matches_filtered = [m for m in matches_filtered if m["group"] == filtro_grupo]
-    if filtro_canal == "En señal abierta (Chilevisión)":
+        
+    if filtro_canal == "Señal Abierta (Chilevisión)":
         matches_filtered = [m for m in matches_filtered if m["channel_free"] is not None]
-    elif filtro_canal == "Solo por Pago (DSports/DGO/Paramount+)":
+    elif filtro_canal == "Exclusivos de Pago (DSports/DGO/Paramount+)":
         matches_filtered = [m for m in matches_filtered if m["channel_free"] is None]
         
     if filtro_estado == "Por jugar":
         matches_filtered = [m for m in matches_filtered if m["goals_a"] is None]
     elif filtro_estado == "Finalizados":
         matches_filtered = [m for m in matches_filtered if m["goals_a"] is not None]
+        
+    if filtro_busqueda:
+        busqueda_clean = filtro_busqueda.strip().lower()
+        matches_filtered = [
+            m for m in matches_filtered 
+            if busqueda_clean in m["team_a"].lower() or busqueda_clean in m["team_b"].lower()
+        ]
 
     if not matches_filtered:
         st.info("No se encontraron partidos para los filtros aplicados.")
@@ -680,7 +690,7 @@ with tab4:
             free_count = sum(1 for m in db["matches"] if m["channel_free"] is not None)
             pay_count = sum(1 for m in db["matches"] if m["channel_free"] is None)
             coverage_data = pd.DataFrame({
-                "Tipo de Transmisión": ["Chilevisión (Señal Abierta)", "Solo por Pago (DSports/DGO/Paramount+)"],
+                "Tipo de Transmisión": ["Chilevisión (Señal Abierta)", "Exclusivos de Pago (DSports/DGO/Paramount+)"],
                 "Cantidad de Partidos": [free_count, pay_count]
             })
             
@@ -689,7 +699,7 @@ with tab4:
                 values="Cantidad de Partidos",
                 names="Tipo de Transmisión",
                 color="Tipo de Transmisión",
-                color_discrete_map={"Chilevisión (Señal Abierta)": "#e63946", "Solo por Pago (DSports/DGO/Paramount+)": "#00b4d8"},
+                color_discrete_map={"Chilevisión (Señal Abierta)": "#e63946", "Exclusivos de Pago (DSports/DGO/Paramount+)": "#00b4d8"},
                 template="plotly_dark",
                 hole=0.4
             )
