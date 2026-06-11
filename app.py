@@ -15,7 +15,7 @@ st.set_page_config(
 
 # Inyectar CSS personalizado para estética premium, oscura y deportiva
 st.markdown("""
-<style> 
+<style>
     /* Estilos del contenedor principal */
     .reportview-container {
         background: #0a0e17;
@@ -119,21 +119,34 @@ st.markdown("""
         font-size: 0.85rem;
         color: #8892b0;
     }
-    .channel-badge {
+    .channel-badge-free {
         background: linear-gradient(135deg, #e63946 0%, #b31928 100%);
         color: white;
         padding: 3px 10px;
         border-radius: 20px;
         font-size: 0.75rem;
         font-weight: 600;
+        margin-right: 5px;
+        display: inline-block;
     }
-    .channel-badge-mega {
+    .channel-badge-pay {
         background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
         color: white;
         padding: 3px 10px;
         border-radius: 20px;
         font-size: 0.75rem;
         font-weight: 600;
+        display: inline-block;
+    }
+    .channel-badge-exclusive {
+        background: rgba(255, 255, 255, 0.08);
+        color: #8892b0;
+        padding: 3px 10px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        margin-right: 5px;
+        display: inline-block;
     }
     
     /* Títulos de sección */
@@ -305,8 +318,11 @@ with st.sidebar:
     st.metric("Goles Totales", total_goals)
     
     st.markdown("---")
-    st.subheader("🏆 Sedes Oficiales")
-    st.caption("🇨🇦 Canadá | 🇲🇽 México | 🇺🇸 Estados Unidos")
+    st.subheader("🏆 Transmisiones en Chile")
+    st.markdown("""
+    - **📺 Señal Abierta:** Chilevisión transmite 34 partidos seleccionados.
+    - **🔒 Señal de Pago:** **DSports / DGO** transmite **el 100% de los 104 partidos** en español.
+    """)
     
     # Botón para restablecer base de datos
     st.markdown("---")
@@ -339,7 +355,7 @@ with tab1:
     with col_f1:
         filtro_grupo = st.selectbox("Filtrar por Grupo", ["Todos"] + sorted(list(db["groups"].keys())))
     with col_f2:
-        filtro_canal = st.selectbox("Filtrar por Canal de Transmisión", ["Todos", "Chilevisión", "Mega"])
+        filtro_canal = st.selectbox("Filtrar por Transmisión", ["Todos", "En señal abierta (Chilevisión)", "Solo por Pago (DSports/DGO)"])
     with col_f3:
         filtro_estado = st.selectbox("Filtrar por Estado", ["Todos", "Por jugar", "Finalizados"])
         
@@ -347,8 +363,11 @@ with tab1:
     matches_filtered = db["matches"]
     if filtro_grupo != "Todos":
         matches_filtered = [m for m in matches_filtered if m["group"] == filtro_grupo]
-    if filtro_canal != "Todos":
-        matches_filtered = [m for m in matches_filtered if m["channel"] == filtro_canal]
+    if filtro_canal == "En señal abierta (Chilevisión)":
+        matches_filtered = [m for m in matches_filtered if m["channel_free"] is not None]
+    elif filtro_canal == "Solo por Pago (DSports/DGO)":
+        matches_filtered = [m for m in matches_filtered if m["channel_free"] is None]
+        
     if filtro_estado == "Por jugar":
         matches_filtered = [m for m in matches_filtered if m["goals_a"] is None]
     elif filtro_estado == "Finalizados":
@@ -375,7 +394,14 @@ with tab1:
                         else:
                             score_html = "<div class='score-pending'>VS</div>"
                             
-                        badge_class = "channel-badge" if match["channel"] == "Chilevisión" else "channel-badge-mega"
+                        # Badges de transmisión
+                        badge_free = ""
+                        if match["channel_free"]:
+                            badge_free = f"<span class='channel-badge-free'>📺 {match['channel_free']}</span>"
+                        else:
+                            badge_free = "<span class='channel-badge-exclusive'>🔒 Solo por Pago</span>"
+                            
+                        badge_pay = f"<span class='channel-badge-pay'>🔑 {match['channel_pay']}</span>"
                         
                         card_html = f"""
                         <div class="match-card">
@@ -398,7 +424,10 @@ with tab1:
                             </div>
                             <div class="match-footer">
                                 <span>🏟️ {match['stadium']}, {match['city']}</span>
-                                <span class="{badge_class}">{match['channel']}</span>
+                                <div>
+                                    {badge_free}
+                                    {badge_pay}
+                                </div>
                             </div>
                         </div>
                         """
@@ -643,15 +672,19 @@ with tab4:
         col_chart1, col_chart2 = st.columns(2)
         with col_chart1:
             st.subheader("📺 Cobertura de Transmisión en Chile")
-            channel_counts = pd.Series([m["channel"] for m in db["matches"]]).value_counts().reset_index()
-            channel_counts.columns = ["Canal", "Cantidad de Partidos"]
+            free_count = sum(1 for m in db["matches"] if m["channel_free"] is not None)
+            pay_count = sum(1 for m in db["matches"] if m["channel_free"] is None)
+            coverage_data = pd.DataFrame({
+                "Tipo de Transmisión": ["Chilevisión (Señal Abierta)", "Solo por Pago (DSports/DGO)"],
+                "Cantidad de Partidos": [free_count, pay_count]
+            })
             
             fig_channels = px.pie(
-                channel_counts,
+                coverage_data,
                 values="Cantidad de Partidos",
-                names="Canal",
-                color="Canal",
-                color_discrete_map={"Chilevisión": "#e63946", "Mega": "#00b4d8"},
+                names="Tipo de Transmisión",
+                color="Tipo de Transmisión",
+                color_discrete_map={"Chilevisión (Señal Abierta)": "#e63946", "Solo por Pago (DSports/DGO)": "#00b4d8"},
                 template="plotly_dark",
                 hole=0.4
             )
