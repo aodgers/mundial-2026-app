@@ -333,10 +333,17 @@ with st.sidebar:
         save_data(db)
         st.session_state.db = db
         st.rerun()
+        
+    st.markdown("---")
+    st.markdown("<div style='text-align: center; color: #8892b0; font-size: 0.85rem;'>© Anthony Odgers Briones</div>", unsafe_allow_html=True)
 
 # CUERPO PRINCIPAL
-st.markdown("<h1 style='text-align: center; color: white;'>🏆 FIFA WORLD CUP 2026 🏆</h1>", unsafe_allow_html=True)
-st.markdown("<p style='text-align: center; color: #8892b0; font-size: 1.2rem;'>Calendario Interactivo, Resultados en Vivo y Tabla de Posiciones para Chile</p>", unsafe_allow_html=True)
+col_title1, col_title2 = st.columns([1, 6])
+with col_title1:
+    st.image("https://upload.wikimedia.org/wikipedia/commons/4/43/2026_FIFA_World_Cup_logo.svg", width=100)
+with col_title2:
+    st.markdown("<h1 style='margin-top: 5px; color: white;'>FIFA WORLD CUP 2026</h1>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #8892b0; font-size: 1.1rem; margin-top: -15px;'>Calendario Interactivo, Resultados en Vivo y Tabla de Posiciones para Chile</p>", unsafe_allow_html=True)
 
 # Tabs
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -735,7 +742,7 @@ with tab4:
 st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: #8892b0; font-size: 0.9rem; padding-bottom: 20px;'>"
-    "Desarrollado con ❤️ para los amantes del fútbol en Chile • Datos cargados desde archivo local json"
+    "Desarrollado por <b>Anthony Odgers Briones</b> © 2026 • Todos los derechos reservados"
     "</div>",
     unsafe_allow_html=True
 )
