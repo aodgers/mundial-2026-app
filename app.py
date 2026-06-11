@@ -384,8 +384,11 @@ with tab1:
                 if idx < len(matches_filtered):
                     match = matches_filtered[idx]
                     with cols[j]:
-                        flag_a = db["team_flags"].get(match["team_a"], "🏳️")
-                        flag_b = db["team_flags"].get(match["team_b"], "🏳️")
+                        iso_a = db["team_iso"].get(match["team_a"], "un")
+                        iso_b = db["team_iso"].get(match["team_b"], "un")
+                        
+                        flag_a_img = f'<img src="https://flagcdn.com/w80/{iso_a}.png" width="56" style="box-shadow: 0px 4px 10px rgba(0,0,0,0.45); border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 6px;" />'
+                        flag_b_img = f'<img src="https://flagcdn.com/w80/{iso_b}.png" width="56" style="box-shadow: 0px 4px 10px rgba(0,0,0,0.45); border-radius: 4px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 6px;" />'
                         
                         # Generar HTML para el diseño de tarjeta deportiva
                         score_html = ""
@@ -411,14 +414,14 @@ with tab1:
                             </div>
                             <div class="match-body">
                                 <div class="team-section">
-                                    <span class="team-flag">{flag_a}</span>
+                                    {flag_a_img}
                                     <span class="team-name">{match['team_a']}</span>
                                 </div>
                                 <div class="score-section">
                                     {score_html}
                                 </div>
                                 <div class="team-section">
-                                    <span class="team-flag">{flag_b}</span>
+                                    {flag_b_img}
                                     <span class="team-name">{match['team_b']}</span>
                                 </div>
                             </div>
@@ -599,7 +602,9 @@ with tab3:
                         
                         col_m1, col_m2, col_m3, col_m4, col_m5 = st.columns([2, 1, 1, 1, 2])
                         
-                        col_m1.markdown(f"**{match['team_a']}** {db['team_flags'].get(match['team_a'], '')}")
+                        iso_a = db["team_iso"].get(match["team_a"], "un")
+                        iso_b = db["team_iso"].get(match["team_b"], "un")
+                        col_m1.markdown(f'<img src="https://flagcdn.com/w40/{iso_a}.png" width="24" style="vertical-align: middle; margin-right: 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.1);" /> **{match["team_a"]}**', unsafe_allow_html=True)
                         
                         # Si el partido ya se jugó en la realidad, mostrar resultado real
                         if match["goals_a"] is not None:
@@ -624,7 +629,7 @@ with tab3:
                             label_visibility="collapsed"
                         )
                         
-                        col_m5.markdown(f"{db['team_flags'].get(match['team_b'], '')} **{match['team_b']}**")
+                        col_m5.markdown(f'**{match["team_b"]}** <img src="https://flagcdn.com/w40/{iso_b}.png" width="24" style="vertical-align: middle; margin-left: 8px; border-radius: 2px; border: 1px solid rgba(255,255,255,0.1);" />', unsafe_allow_html=True)
                         
                         new_preds_data[match_id_str] = {"goals_a": pred_val_a, "goals_b": pred_val_b}
                         st.markdown("<hr style='margin: 0.3rem 0; opacity: 0.15;' />", unsafe_allow_html=True)
