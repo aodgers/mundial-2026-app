@@ -124,7 +124,7 @@
       "stadium": "Estadio Azteca",
       "city": "Ciudad de México",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -139,7 +139,7 @@
       "stadium": "SoFi Stadium",
       "city": "Los Ángeles",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -154,7 +154,7 @@
       "stadium": "Hard Rock Stadium",
       "city": "Miami",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -169,7 +169,7 @@
       "stadium": "AT&T Stadium",
       "city": "Dallas",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -184,7 +184,7 @@
       "stadium": "MetLife Stadium",
       "city": "Nueva York/Nueva Jersey",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -199,7 +199,7 @@
       "stadium": "BC Place",
       "city": "Vancouver",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -214,7 +214,7 @@
       "stadium": "Lincoln Financial Field",
       "city": "Filadelfia",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -229,7 +229,7 @@
       "stadium": "Lumen Field",
       "city": "Seattle",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -244,7 +244,7 @@
       "stadium": "Gillette Stadium",
       "city": "Boston",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -259,7 +259,7 @@
       "stadium": "NRG Stadium",
       "city": "Houston",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -274,7 +274,7 @@
       "stadium": "Mercedes-Benz Stadium",
       "city": "Atlanta",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -289,7 +289,7 @@
       "stadium": "TQL Stadium",
       "city": "Cincinnati",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -304,7 +304,7 @@
       "stadium": "Estadio Azteca",
       "city": "Ciudad de México",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -319,7 +319,7 @@
       "stadium": "BMO Field",
       "city": "Toronto",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -334,7 +334,7 @@
       "stadium": "BC Place",
       "city": "Vancouver",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -349,7 +349,7 @@
       "stadium": "Estadio BBVA",
       "city": "Monterrey",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -364,7 +364,7 @@
       "stadium": "Levi's Stadium",
       "city": "San Francisco",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -379,7 +379,7 @@
       "stadium": "Geodis Park",
       "city": "Nashville",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -394,7 +394,7 @@
       "stadium": "Inter&Co Stadium",
       "city": "Orlando",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -409,7 +409,7 @@
       "stadium": "Audi Field",
       "city": "Washington D.C.",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -424,7 +424,7 @@
       "stadium": "CPKC Stadium",
       "city": "Kansas City",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -439,7 +439,7 @@
       "stadium": "Bank of America Stadium",
       "city": "Charlotte",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -454,7 +454,7 @@
       "stadium": "Raymond James Stadium",
       "city": "Tampa",
       "channel_free": "Chilevisión",
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
@@ -469,7 +469,7 @@
       "stadium": "Empower Field",
       "city": "Denver",
       "channel_free": null,
-      "channel_pay": "DSports / DGO",
+      "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
       "phase": "Fase de Grupos - Jornada 1"
