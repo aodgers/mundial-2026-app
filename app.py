@@ -15,7 +15,7 @@ st.set_page_config(
 
 # Inyectar CSS personalizado para estética premium, oscura y deportiva
 st.markdown("""
-<style>
+<style> 
     /* Estilos del contenedor principal */
     .reportview-container {
         background: #0a0e17;
