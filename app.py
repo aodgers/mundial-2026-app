@@ -386,8 +386,8 @@ with tab1:
     with col_f4:
         filtro_busqueda = st.text_input("🔍 Buscar Selección", placeholder="Ej: Chile, Argentina")
         
-    # Aplicar filtros
-    matches_filtered = db["matches"]
+    # Aplicar filtros y ordenar cronológicamente
+    matches_filtered = sorted(db["matches"], key=lambda x: (x["date"], x["time_clt"]))
     if filtro_grupo != "Todos":
         matches_filtered = [m for m in matches_filtered if m["group"] == filtro_grupo]
         
@@ -688,8 +688,8 @@ with tab3:
                     
                     new_preds_data = {}
                     
-                    # Mostrar partidos
-                    for match in db["matches"]:
+                    # Mostrar partidos ordenados cronológicamente
+                    for match in sorted(db["matches"], key=lambda x: (x["date"], x["time_clt"])):
                         match_id_str = str(match["id"])
                         saved_pred = current_preds.get(match_id_str, {"goals_a": 0, "goals_b": 0})
                         
