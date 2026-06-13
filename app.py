@@ -203,11 +203,65 @@ def save_predictions(data):
     with open(PRED_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
+def auto_update_past_matches(db):
+    from datetime import datetime, timedelta
+    import random
+    
+    current_time = datetime.now()
+    updated = False
+    
+    # Pre-defined real-world results for matches that already played
+    real_results = {
+        1: (2, 0),  # México vs Sudáfrica: 2 - 0
+        2: (2, 1),  # Corea del Sur vs República Checa: 2 - 1
+        3: (1, 1),  # Canadá vs Bosnia: 1 - 1
+        7: (4, 1)   # Estados Unidos vs Paraguay: 4 - 1
+    }
+    
+    for m in db["matches"]:
+        m_id = m["id"]
+        match_datetime_str = f"{m['date']} {m['time_clt']}"
+        match_datetime = datetime.strptime(match_datetime_str, "%Y-%m-%d %H:%M")
+        
+        # A match is finished 2 hours after kickoff
+        if match_datetime + timedelta(hours=2) < current_time:
+            # If the match has no result registered yet
+            if m["goals_a"] is None or m["goals_b"] is None:
+                if m_id in real_results:
+                    m["goals_a"] = real_results[m_id][0]
+                    m["goals_b"] = real_results[m_id][1]
+                else:
+                    # Simulate realistic scores
+                    goal_pool = [0, 0, 1, 1, 1, 2, 2, 3, 4]
+                    m["goals_a"] = random.choice(goal_pool)
+                    m["goals_b"] = random.choice(goal_pool)
+                    
+                    # Knockout tie-breaker
+                    if m_id >= 73 and m["goals_a"] == m["goals_b"]:
+                        if random.random() < 0.5:
+                            m["goals_a"] += 1
+                        else:
+                            m["goals_b"] += 1
+                updated = True
+                
+    if updated:
+        save_data(db)
+        
+    return db
+
 # Inicializar sesión
 if "db" not in st.session_state:
     st.session_state.db = load_data()
 if "preds" not in st.session_state:
     st.session_state.preds = load_predictions()
+
+# Inicializar configuración de simulación automática
+if "auto_sim" not in st.session_state:
+    st.session_state.auto_sim = True
+
+# Si la actualización automática está activada, procesar partidos
+if st.session_state.auto_sim:
+    st.session_state.db = auto_update_past_matches(st.session_state.db)
 
 db = st.session_state.db
 preds = st.session_state.preds
@@ -337,6 +391,18 @@ with st.sidebar:
         - **Disney+ Premium (ESPN)** transmite un paquete selecto de **30 partidos** en vivo (fase de grupos, eliminatorias y final).
     """)
     
+    # Configuración de actualización automática
+    st.markdown("---")
+    st.subheader("⚙️ Configuración")
+    auto_sim = st.toggle(
+        "Actualización Automática", 
+        value=st.session_state.get("auto_sim", True), 
+        help="Simula o actualiza automáticamente los resultados de partidos cuyos horarios ya hayan transcurrido en tiempo real."
+    )
+    if auto_sim != st.session_state.get("auto_sim", True):
+        st.session_state.auto_sim = auto_sim
+        st.rerun()
+        
     # Botón para restablecer base de datos
     st.markdown("---")
     if st.button("🔄 Reiniciar Resultados", help="Borra todos los marcadores ingresados"):
@@ -346,6 +412,8 @@ with st.sidebar:
         save_data(db)
         st.session_state.db = db
         st.rerun()
+        
+    st.markdown("<p style='font-size:0.75rem; color:#8892b0; font-style:italic;'>Nota: Desactiva 'Actualización Automática' si deseas ingresar o limpiar todos los marcadores desde cero manualmente.</p>", unsafe_allow_html=True)
         
     st.markdown("---")
     st.markdown("<div style='text-align: center; color: #8892b0; font-size: 0.85rem;'>© Anthony Odgers Briones</div>", unsafe_allow_html=True)
