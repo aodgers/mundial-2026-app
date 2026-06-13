@@ -245,7 +245,14 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": 2,
       "goals_b": 0,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [
+          "Santiago Giménez (23')",
+          "Hirving Lozano (78')"
+        ],
+        "team_b": []
+      }
     },
     {
       "id": 2,
@@ -260,7 +267,16 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": 2,
       "goals_b": 1,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [
+          "Son Heung-min (45')",
+          "Hwang Hee-chan (82')"
+        ],
+        "team_b": [
+          "Patrik Schick (60')"
+        ]
+      }
     },
     {
       "id": 3,
@@ -275,7 +291,15 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": 1,
       "goals_b": 1,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [
+          "Jonathan David (34')"
+        ],
+        "team_b": [
+          "Edin Džeko (75')"
+        ]
+      }
     },
     {
       "id": 4,
@@ -290,7 +314,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 5,
@@ -305,7 +333,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 6,
@@ -320,7 +352,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 7,
@@ -335,7 +371,18 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": 4,
       "goals_b": 1,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [
+          "Christian Pulisic (12')",
+          "Folarin Balogun (40')",
+          "Christian Pulisic (55')",
+          "Weston McKennie (70')"
+        ],
+        "team_b": [
+          "Miguel Almirón (30')"
+        ]
+      }
     },
     {
       "id": 8,
@@ -350,7 +397,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 9,
@@ -365,7 +416,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 10,
@@ -380,7 +435,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 11,
@@ -395,7 +454,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 12,
@@ -410,7 +473,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 13,
@@ -425,7 +492,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 14,
@@ -440,7 +511,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 15,
@@ -455,7 +530,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 16,
@@ -470,7 +549,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 17,
@@ -485,7 +568,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 18,
@@ -500,7 +587,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 19,
@@ -515,7 +606,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 20,
@@ -530,7 +625,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 21,
@@ -545,7 +644,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 22,
@@ -560,7 +663,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 23,
@@ -575,7 +682,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 24,
@@ -590,7 +701,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 1"
+      "phase": "Fase de Grupos - Jornada 1",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 25,
@@ -605,7 +720,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 26,
@@ -620,7 +739,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 27,
@@ -635,7 +758,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 28,
@@ -650,7 +777,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 29,
@@ -665,7 +796,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 30,
@@ -680,7 +815,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 31,
@@ -695,7 +834,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 32,
@@ -710,7 +853,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 33,
@@ -725,7 +872,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 34,
@@ -740,7 +891,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 35,
@@ -755,7 +910,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 36,
@@ -770,7 +929,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 37,
@@ -785,7 +948,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 38,
@@ -800,7 +967,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 39,
@@ -815,7 +986,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 40,
@@ -830,7 +1005,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 41,
@@ -845,7 +1024,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 42,
@@ -860,7 +1043,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 43,
@@ -875,7 +1062,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 44,
@@ -890,7 +1081,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 45,
@@ -905,7 +1100,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 46,
@@ -920,7 +1119,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 47,
@@ -935,7 +1138,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 48,
@@ -950,7 +1157,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 2"
+      "phase": "Fase de Grupos - Jornada 2",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 49,
@@ -965,7 +1176,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 50,
@@ -980,7 +1195,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 51,
@@ -995,7 +1214,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 52,
@@ -1010,7 +1233,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 53,
@@ -1025,7 +1252,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 54,
@@ -1040,7 +1271,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 55,
@@ -1055,7 +1290,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 56,
@@ -1070,7 +1309,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 57,
@@ -1085,7 +1328,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 58,
@@ -1100,7 +1347,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 59,
@@ -1115,7 +1366,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 60,
@@ -1130,7 +1385,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 61,
@@ -1145,7 +1404,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 62,
@@ -1160,7 +1423,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 63,
@@ -1175,7 +1442,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 64,
@@ -1190,7 +1461,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 65,
@@ -1205,7 +1480,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 66,
@@ -1220,7 +1499,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 67,
@@ -1235,7 +1518,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 68,
@@ -1250,7 +1537,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 69,
@@ -1265,7 +1556,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 70,
@@ -1280,7 +1575,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 71,
@@ -1295,7 +1594,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 72,
@@ -1310,7 +1613,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Fase de Grupos - Jornada 3"
+      "phase": "Fase de Grupos - Jornada 3",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 73,
@@ -1325,7 +1632,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 74,
@@ -1340,7 +1651,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 75,
@@ -1355,7 +1670,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 76,
@@ -1370,7 +1689,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 77,
@@ -1385,7 +1708,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 78,
@@ -1400,7 +1727,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 79,
@@ -1415,7 +1746,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 80,
@@ -1430,7 +1765,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 81,
@@ -1445,7 +1784,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 82,
@@ -1460,7 +1803,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 83,
@@ -1475,7 +1822,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 84,
@@ -1490,7 +1841,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 85,
@@ -1505,7 +1860,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 86,
@@ -1520,7 +1879,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 87,
@@ -1535,7 +1898,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 88,
@@ -1550,7 +1917,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Dieciseisavos de Final"
+      "phase": "Dieciseisavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 89,
@@ -1565,7 +1936,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 90,
@@ -1580,7 +1955,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 91,
@@ -1595,7 +1974,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 92,
@@ -1610,7 +1993,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 93,
@@ -1625,7 +2012,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 94,
@@ -1640,7 +2031,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 95,
@@ -1655,7 +2050,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 96,
@@ -1670,7 +2069,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Octavos de Final"
+      "phase": "Octavos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 97,
@@ -1685,7 +2088,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Cuartos de Final"
+      "phase": "Cuartos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 98,
@@ -1700,7 +2107,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Cuartos de Final"
+      "phase": "Cuartos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 99,
@@ -1715,7 +2126,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Cuartos de Final"
+      "phase": "Cuartos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 100,
@@ -1730,7 +2145,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Cuartos de Final"
+      "phase": "Cuartos de Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 101,
@@ -1745,7 +2164,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Semifinal"
+      "phase": "Semifinal",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 102,
@@ -1760,7 +2183,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Semifinal"
+      "phase": "Semifinal",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 103,
@@ -1775,7 +2202,11 @@
       "channel_pay": "DSports / DGO / Paramount+",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Tercer Puesto"
+      "phase": "Tercer Puesto",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     },
     {
       "id": 104,
@@ -1790,7 +2221,11 @@
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
       "goals_a": null,
       "goals_b": null,
-      "phase": "Final"
+      "phase": "Final",
+      "scorers": {
+        "team_a": [],
+        "team_b": []
+      }
     }
   ]
 }
