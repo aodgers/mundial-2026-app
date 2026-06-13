@@ -509,6 +509,7 @@ total_goals = sum((m["goals_a"] or 0) + (m["goals_b"] or 0) for m in db["matches
 with st.sidebar:
     st.image("data/logo.png", width=120)
     st.title("Control del Torneo")
+    st.caption("Versión App: 1.0.1 (Goleadores Fix)")
     
     st.markdown("---")
     st.subheader("📊 Progreso del Mundial")
@@ -660,47 +661,37 @@ with tab1:
                             scorers_a_str = "<br>".join([f"⚽ {s}" for s in scorers_a])
                             scorers_b_str = "<br>".join([f"⚽ {s}" for s in scorers_b])
                             
-                            scorers_row_html = f"""
-                            <div class="scorers-row" style="display: flex; justify-content: space-between; margin-top: -5px; margin-bottom: 10px; font-size: 0.8rem; color: #a8b2d1;">
-                                <div style="width: 38%; text-align: center; line-height: 1.2;">
-                                    {scorers_a_str}
-                                </div>
-                                <div style="width: 24%;"></div>
-                                <div style="width: 38%; text-align: center; line-height: 1.2;">
-                                    {scorers_b_str}
-                                </div>
-                            </div>
-                            """
+                            scorers_row_html = f'<div class="scorers-row" style="display: flex; justify-content: space-between; margin-top: -5px; margin-bottom: 10px; font-size: 0.8rem; color: #a8b2d1;"><div style="width: 38%; text-align: center; line-height: 1.2;">{scorers_a_str}</div><div style="width: 24%;"></div><div style="width: 38%; text-align: center; line-height: 1.2;">{scorers_b_str}</div></div>'
                             
-                        card_html = f"""
-                        <div class="match-card">
-                            <div class="match-header">
-                                <span>📅 {match['date']} | ⏰ {match['time_clt']} (CLT)</span>
-                                <span>Grupo {match['group']} • {match['phase']}</span>
-                            </div>
-                            <div class="match-body">
-                                <div class="team-section">
-                                    {flag_a_img}
-                                    <span class="team-name">{match['team_a']}</span>
-                                </div>
-                                <div class="score-section">
-                                    {score_html}
-                                </div>
-                                <div class="team-section">
-                                    {flag_b_img}
-                                    <span class="team-name">{match['team_b']}</span>
-                                </div>
-                            </div>
-                            {scorers_row_html}
-                            <div class="match-footer">
-                                <span>🏟️ {match['stadium']}, {match['city']}</span>
-                                <div>
-                                    {badge_free}
-                                    {badge_pay}
-                                </div>
-                            </div>
-                        </div>
-                        """
+                        card_html = (
+                            f'<div class="match-card">'
+                            f'<div class="match-header">'
+                            f'<span>📅 {match["date"]} | ⏰ {match["time_clt"]} (CLT)</span>'
+                            f'<span>Grupo {match["group"]} • {match["phase"]}</span>'
+                            f'</div>'
+                            f'<div class="match-body">'
+                            f'<div class="team-section">'
+                            f'{flag_a_img}'
+                            f'<span class="team-name">{match["team_a"]}</span>'
+                            f'</div>'
+                            f'<div class="score-section">'
+                            f'{score_html}'
+                            f'</div>'
+                            f'<div class="team-section">'
+                            f'{flag_b_img}'
+                            f'<span class="team-name">{match["team_b"]}</span>'
+                            f'</div>'
+                            f'</div>'
+                            f'{scorers_row_html}'
+                            f'<div class="match-footer">'
+                            f'<span>🏟️ {match["stadium"]}, {match["city"]}</span>'
+                            f'<div>'
+                            f'{badge_free}'
+                            f'{badge_pay}'
+                            f'</div>'
+                            f'</div>'
+                            f'</div>'
+                        )
                         st.markdown(card_html, unsafe_allow_html=True)
                         
                         # Expander para registrar resultados del partido
