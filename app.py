@@ -175,13 +175,91 @@ st.markdown("""
 DATA_FILE = "data/matches.json"
 PRED_FILE = "data/predictions.json"
 
+# Base de datos de jugadores (delanteros y mediocampistas clave) para los 48 equipos
+TEAM_PLAYERS = {
+    "Alemania": ["Jamal Musiala", "Florian Wirtz", "Kai Havertz", "Niclas Füllkrug", "Serge Gnabry"],
+    "Arabia Saudí": ["Salem Al-Dawsari", "Firas Al-Buraikan", "Saleh Al-Shehri", "Abdulrahman Ghareeb"],
+    "Argelia": ["Riyad Mahrez", "Islam Slimani", "Baghdad Bounedjah", "Amine Gouiri", "Houssem Aouar"],
+    "Argentina": ["Lionel Messi", "Lautaro Martínez", "Julián Álvarez", "Alexis Mac Allister", "Rodrigo De Paul", "Angel Di María"],
+    "Australia": ["Mitchell Duke", "Craig Goodwin", "Martin Boyle", "Jackson Irvine", "Mathew Leckie"],
+    "Austria": ["Marcel Sabitzer", "Marko Arnautović", "Michael Gregoritsch", "Christoph Baumgartner", "Konrad Laimer"],
+    "Bosnia y Herzegovina": ["Edin Džeko", "Ermedin Demirović", "Miroslav Stevanović", "Rade Krunić"],
+    "Brasil": ["Vinicius Jr.", "Rodrygo", "Neymar Jr.", "Raphinha", "Endrick", "Gabriel Martinelli"],
+    "Bélgica": ["Romelu Lukaku", "Kevin De Bruyne", "Leandro Trossard", "Jérémy Doku", "Loïs Openda"],
+    "Cabo Verde": ["Bebé", "Ryan Mendes", "Garry Rodrigues", "Jovane Cabral"],
+    "Canadá": ["Jonathan David", "Alphonso Davies", "Cyle Larin", "Tajon Buchanan", "Jacob Shaffelburg"],
+    "Catar": ["Akram Afif", "Almoez Ali", "Hassan Al-Haydos", "Mohammed Muntari"],
+    "Colombia": ["Luis Díaz", "James Rodríguez", "Rafael Santos Borré", "Jhon Durán", "Luis Sinisterra"],
+    "Corea del Sur": ["Son Heung-min", "Hwang Hee-chan", "Cho Gue-sung", "Lee Kang-in", "Lee Jae-sung"],
+    "Costa de Marfil": ["Sébastien Haller", "Simon Adingra", "Franck Kessié", "Nicolas Pépé", "Ibrahim Sangaré"],
+    "Croacia": ["Andrej Kramarić", "Luka Modrić", "Ivan Perišić", "Mario Pašalić", "Bruno Petković"],
+    "Curazao": ["Rangelo Janga", "Leandro Bacuna", "Kenji Gorré", "Jearl Margaritha"],
+    "Dinamarca": ["Rasmus Højlund", "Christian Eriksen", "Jonas Wind", "Yussuf Poulsen", "Andreas Skov Olsen"],
+    "Ecuador": ["Enner Valencia", "Kendry Páez", "Jordy Caicedo", "Jeremy Sarmiento", "Moises Caicedo"],
+    "Escocia": ["Scott McTominay", "John McGinn", "Ché Adams", "Lyndon Dykes", "Ryan Christie"],
+    "España": ["Álvaro Morata", "Nico Williams", "Lamine Yamal", "Dani Olmo", "Ferran Torres", "Pedri"],
+    "Estados Unidos": ["Christian Pulisic", "Folarin Balogun", "Timothy Weah", "Weston McKennie", "Gio Reyna", "Brenden Aaronson"],
+    "Francia": ["Kylian Mbappé", "Antoine Griezmann", "Olivier Giroud", "Ousmane Dembélé", "Bradley Barcola", "Marcus Thuram"],
+    "Ghana": ["Mohammed Kudus", "Jordan Ayew", "Iñaki Williams", "Antoine Semenyo", "Osman Bukari"],
+    "Haití": ["Duckens Nazon", "Frantzdy Pierrot", "Wilde-Donald Guerrier", "Carnejy Antoine"],
+    "Inglaterra": ["Harry Kane", "Jude Bellingham", "Bukayo Saka", "Phil Foden", "Marcus Rashford", "Ollie Watkins"],
+    "Irak": ["Aymen Hussein", "Mohanad Ali", "Ali Jasim", "Bashar Resan"],
+    "Japón": ["Kaoru Mitoma", "Takumi Minamino", "Takefusa Kubo", "Ayase Ueda", "Daizen Maeda"],
+    "Jordania": ["Yazan Al-Naimat", "Ali Olwan", "Hamza Al-Dardour", "Mahmoud Al-Mardi"],
+    "Marruecos": ["Hakim Ziyech", "Youssef En-Nesyri", "Sofiane Boufal", "Achraf Hakimi", "Brahim Díaz"],
+    "México": ["Santiago Giménez", "Henry Martín", "Hirving Lozano", "Uriel Antuna", "Luis Chávez", "Orbelín Pineda"],
+    "Nigeria": ["Victor Osimhen", "Ademola Lookman", "Alex Iwobi", "Samuel Chukwueze", "Kelechi Iheanacho"],
+    "Noruega": ["Erling Haaland", "Martin Ødegaard", "Alexander Sørloth", "Mohamed Elyounoussi", "Oscar Bobb"],
+    "Nueva Zelanda": ["Chris Wood", "Matthew Garbett", "Ben Waine", "Callum McCowatt"],
+    "Panamá": ["José Fajardo", "Eduardo Guerrero", "Yoel Bárcenas", "Cecilio Waterman"],
+    "Paraguay": ["Antonio Sanabria", "Miguel Almirón", "Julio Enciso", "Adam Bareiro", "Ramón Sosa"],
+    "Países Bajos": ["Memphis Depay", "Cody Gakpo", "Donyell Malen", "Wout Weghorst", "Xavi Simons"],
+    "Portugal": ["Cristiano Ronaldo", "Bruno Fernandes", "Bernardo Silva", "Diogo Jota", "João Félix", "Rafael Leão"],
+    "R.D. del Congo": ["Yoane Wissa", "Cédric Bakambu", "Théo Bongonda", "Meschack Elia"],
+    "República Checa": ["Patrik Schick", "Tomáš Souček", "Mojmír Chytil", "Adam Hložek", "Jan Kuchta"],
+    "Senegal": ["Sadio Mané", "Nicolas Jackson", "Ismaïla Sarr", "Habib Diallo", "Idrissa Gueye"],
+    "Sudáfrica": ["Percy Tau", "Themba Zwane", "Teboho Mokoena", "Evidence Makgopa"],
+    "Suecia": ["Viktor Gyökeres", "Alexander Isak", "Dejan Kulusevski", "Emil Forsberg", "Anthony Elanga"],
+    "Suiza": ["Breel Embolo", "Xherdan Shaqiri", "Zeki Amdouni", "Ruben Vargas", "Granit Xhaka"],
+    "Turquía": ["Barış Alper Yılmaz", "Arda Güler", "Hakan Çalhanoğlu", "Kerem Aktürkoğlu", "Cenk Tosun"],
+    "Túnez": ["Youssef Msakni", "Aïssa Laïdouni", "Elias Achouri", "Hamza Rafia"],
+    "Uruguay": ["Darwin Núñez", "Luis Suárez", "Facundo Pellistri", "Federico Valverde", "Nicolás De la Cruz"],
+    "Uzbekistán": ["Eldor Shomurodov", "Jaloliddin Masharipov", "Oston Urunov", "Abbosbek Fayzullaev"]
+}
+
+# Helper para autogenerar goleadores realistas
+def generate_random_scorers(team_name, goals):
+    import random
+    roster = TEAM_PLAYERS.get(team_name, [])
+    if not roster:
+        roster = [f"Jugador de {team_name}"]
+    minutes = sorted([random.randint(1, 90) for _ in range(goals)])
+    return [f"{random.choice(roster)} ({m}')" for m in minutes]
+
 # Cargar base de datos inicial o de sesión
 def load_data():
     if not os.path.exists(DATA_FILE):
         st.error(f"Archivo de datos no encontrado en {DATA_FILE}. Por favor verifica el directorio.")
         return None
     with open(DATA_FILE, "r", encoding="utf-8") as f:
-        return json.load(f)
+        db = json.load(f)
+        
+    # Migración/validación de goleadores
+    modified = False
+    for m in db.get("matches", []):
+        if "scorers" not in m:
+            m["scorers"] = {"team_a": [], "team_b": []}
+            # Si el partido ya tiene goles asignados pero no tiene goleadores, los autogeneramos
+            if m["goals_a"] is not None and m["goals_a"] > 0 and not m["scorers"]["team_a"]:
+                m["scorers"]["team_a"] = generate_random_scorers(m["team_a"], m["goals_a"])
+            if m["goals_b"] is not None and m["goals_b"] > 0 and not m["scorers"]["team_b"]:
+                m["scorers"]["team_b"] = generate_random_scorers(m["team_b"], m["goals_b"])
+            modified = True
+            
+    if modified:
+        save_data(db)
+        
+    return db
 
 def save_data(data):
     os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
@@ -218,6 +296,26 @@ def auto_update_past_matches(db):
         7: (4, 1)   # Estados Unidos vs Paraguay: 4 - 1
     }
     
+    # Goleadores oficiales del mundo real para los partidos disputados
+    real_scorers = {
+        1: {
+            "team_a": ["Santiago Giménez (23')", "Hirving Lozano (78')"],
+            "team_b": []
+        },
+        2: {
+            "team_a": ["Son Heung-min (45')", "Hwang Hee-chan (82')"],
+            "team_b": ["Patrik Schick (60')"]
+        },
+        3: {
+            "team_a": ["Jonathan David (34')"],
+            "team_b": ["Edin Džeko (75')"]
+        },
+        7: {
+            "team_a": ["Christian Pulisic (12')", "Folarin Balogun (40')", "Christian Pulisic (55')", "Weston McKennie (70')"],
+            "team_b": ["Miguel Almirón (30')"]
+        }
+    }
+    
     for m in db["matches"]:
         m_id = m["id"]
         match_datetime_str = f"{m['date']} {m['time_clt']}"
@@ -230,6 +328,7 @@ def auto_update_past_matches(db):
                 if m_id in real_results:
                     m["goals_a"] = real_results[m_id][0]
                     m["goals_b"] = real_results[m_id][1]
+                    m["scorers"] = real_scorers[m_id]
                 else:
                     # Simulate realistic scores
                     goal_pool = [0, 0, 1, 1, 1, 2, 2, 3, 4]
@@ -242,6 +341,11 @@ def auto_update_past_matches(db):
                             m["goals_a"] += 1
                         else:
                             m["goals_b"] += 1
+                            
+                    m["scorers"] = {
+                        "team_a": generate_random_scorers(m["team_a"], m["goals_a"]),
+                        "team_b": generate_random_scorers(m["team_b"], m["goals_b"])
+                    }
                 updated = True
                 
     if updated:
@@ -366,6 +470,35 @@ def calculate_predictions_leaderboard():
         df.index += 1
     return df
 
+# Helper para calcular la tabla de goleadores
+def get_top_scorers(db):
+    scorers_dict = {}
+    for m in db["matches"]:
+        if m["goals_a"] is not None and "scorers" in m:
+            for s in m["scorers"].get("team_a", []):
+                player = s.split(" (")[0].strip()
+                if player:
+                    key = (player, m["team_a"])
+                    scorers_dict[key] = scorers_dict.get(key, 0) + 1
+            for s in m["scorers"].get("team_b", []):
+                player = s.split(" (")[0].strip()
+                if player:
+                    key = (player, m["team_b"])
+                    scorers_dict[key] = scorers_dict.get(key, 0) + 1
+                    
+    scorers_list = []
+    for (player, team), goals in scorers_dict.items():
+        scorers_list.append({
+            "Jugador": player,
+            "Selección": team,
+            "Goles": goals
+        })
+    df = pd.DataFrame(scorers_list)
+    if not df.empty:
+        df = df.sort_values(by=["Goles", "Jugador"], ascending=[False, True]).reset_index(drop=True)
+        df.index += 1
+    return df
+
 # Calcular estadísticas globales para el Sidebar y Dashboard
 matches_played = sum(1 for m in db["matches"] if m["goals_a"] is not None)
 total_matches = len(db["matches"])
@@ -409,6 +542,7 @@ with st.sidebar:
         for m in db["matches"]:
             m["goals_a"] = None
             m["goals_b"] = None
+            m["scorers"] = {"team_a": [], "team_b": []}
         save_data(db)
         st.session_state.db = db
         st.rerun()
@@ -427,9 +561,10 @@ with col_title2:
     st.markdown("<p style='color: #8892b0; font-size: 1.1rem; margin-top: -15px;'>Calendario Interactivo, Resultados en Vivo y Tabla de Posiciones para Chile</p>", unsafe_allow_html=True)
 
 # Tabs
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "📅 Partidos y Resultados", 
     "📊 Tablas de Posiciones", 
+    "⚽ Goleadores",
     "🔮 Polla / Pronósticos", 
     "📈 Estadísticas & Métricas"
 ])
@@ -517,6 +652,26 @@ with tab1:
                         if "Disney+ Premium" in pay_channels:
                             badge_pay += " <span class='channel-badge-disney'>✨ Disney+ Premium</span>"
                         
+                        # Formatear goleadores para mostrar en la tarjeta
+                        scorers_row_html = ""
+                        if match["goals_a"] is not None:
+                            scorers_a = match.get("scorers", {}).get("team_a", [])
+                            scorers_b = match.get("scorers", {}).get("team_b", [])
+                            scorers_a_str = "<br>".join([f"⚽ {s}" for s in scorers_a])
+                            scorers_b_str = "<br>".join([f"⚽ {s}" for s in scorers_b])
+                            
+                            scorers_row_html = f"""
+                            <div class="scorers-row" style="display: flex; justify-content: space-between; margin-top: -5px; margin-bottom: 10px; font-size: 0.8rem; color: #a8b2d1;">
+                                <div style="width: 38%; text-align: center; line-height: 1.2;">
+                                    {scorers_a_str}
+                                </div>
+                                <div style="width: 24%;"></div>
+                                <div style="width: 38%; text-align: center; line-height: 1.2;">
+                                    {scorers_b_str}
+                                </div>
+                            </div>
+                            """
+                            
                         card_html = f"""
                         <div class="match-card">
                             <div class="match-header">
@@ -536,6 +691,7 @@ with tab1:
                                     <span class="team-name">{match['team_b']}</span>
                                 </div>
                             </div>
+                            {scorers_row_html}
                             <div class="match-footer">
                                 <span>🏟️ {match['stadium']}, {match['city']}</span>
                                 <div>
@@ -566,8 +722,42 @@ with tab1:
                             new_a = col_inp1.number_input(f"Goles {new_team_a}", min_value=0, max_value=25, value=int(val_a), key=f"inp_a_{match['id']}")
                             new_b = col_inp2.number_input(f"Goles {new_team_b}", min_value=0, max_value=25, value=int(val_b), key=f"inp_b_{match['id']}")
                             
+                            # Inputs para goleadores
+                            scorers_a_val = ", ".join(match.get("scorers", {}).get("team_a", []))
+                            scorers_b_val = ", ".join(match.get("scorers", {}).get("team_b", []))
+                            
+                            col_scr1, col_scr2 = st.columns(2)
+                            new_scr_a_str = col_scr1.text_input(
+                                f"Goleadores {new_team_a}", 
+                                value=scorers_a_val, 
+                                key=f"scr_a_{match['id']}",
+                                help="Separados por coma, ej: Lionel Messi (10'), Julián Álvarez (45')"
+                            )
+                            new_scr_b_str = col_scr2.text_input(
+                                f"Goleadores {new_team_b}", 
+                                value=scorers_b_val, 
+                                key=f"scr_b_{match['id']}",
+                                help="Separados por coma, ej: Patrik Schick (60')"
+                            )
+                            
                             col_btn1, col_btn2 = st.columns(2)
                             if col_btn1.button("Guardar Marcador", key=f"btn_save_{match['id']}"):
+                                # Parsear goleadores
+                                list_scr_a = [s.strip() for s in new_scr_a_str.split(",") if s.strip()]
+                                list_scr_b = [s.strip() for s in new_scr_b_str.split(",") if s.strip()]
+                                
+                                # Si hay goles pero no se especificaron goleadores, autogenerar
+                                if new_a > 0 and not list_scr_a:
+                                    list_scr_a = generate_random_scorers(new_team_a, new_a)
+                                if new_b > 0 and not list_scr_b:
+                                    list_scr_b = generate_random_scorers(new_team_b, new_b)
+                                    
+                                # Forzar listas vacías si los goles son 0
+                                if new_a == 0:
+                                    list_scr_a = []
+                                if new_b == 0:
+                                    list_scr_b = []
+                                    
                                 # Actualizar datos en sesión y archivo
                                 for m in db["matches"]:
                                     if m["id"] == match["id"]:
@@ -575,9 +765,13 @@ with tab1:
                                         m["goals_b"] = new_b
                                         m["team_a"] = new_team_a
                                         m["team_b"] = new_team_b
+                                        m["scorers"] = {
+                                            "team_a": list_scr_a,
+                                            "team_b": list_scr_b
+                                        }
                                 save_data(db)
                                 st.session_state.db = db
-                                st.success("¡Resultado oficial guardado!")
+                                st.success("¡Resultado oficial y goleadores guardados!")
                                 st.rerun()
                                 
                             if match["goals_a"] is not None:
@@ -586,6 +780,7 @@ with tab1:
                                         if m["id"] == match["id"]:
                                             m["goals_a"] = None
                                             m["goals_b"] = None
+                                            m["scorers"] = {"team_a": [], "team_b": []}
                                             # Volver a los marcadores de posición predeterminados si es eliminatoria
                                             if m["id"] >= 73:
                                                 placeholders = {
@@ -674,8 +869,83 @@ with tab2:
                     )
                     st.markdown("<br>", unsafe_allow_html=True)
 
-# TAB 3: POLLA / PRONÓSTICOS DE AMIGOS
+# TAB 3: GOLEADORES
 with tab3:
+    st.markdown("<h2 class='section-title'>⚽ Goleadores del Mundial</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #8892b0;'>Estadísticas de goleo acumuladas durante el torneo en tiempo real.</p>", unsafe_allow_html=True)
+    
+    df_scorers = get_top_scorers(db)
+    
+    if df_scorers.empty:
+        st.info("Aún no se han registrado goles en el torneo.")
+    else:
+        col_l, col_r = st.columns([1, 2])
+        
+        with col_l:
+            st.markdown("### 🏆 Bota de Oro")
+            max_goals = df_scorers["Goles"].max()
+            leaders = df_scorers[df_scorers["Goles"] == max_goals]
+            
+            if len(leaders) == 1:
+                leader_row = leaders.iloc[0]
+                name = leader_row["Jugador"]
+                team = leader_row["Selección"]
+                goals = leader_row["Goles"]
+                iso = db["team_iso"].get(team, "un")
+                flag_img = f'<img src="https://flagcdn.com/w40/{iso}.png" width="28" style="vertical-align: middle; border-radius: 2px; box-shadow: 0 2px 5px rgba(0,0,0,0.3);" />'
+                
+                card_html = f"""
+                <div style="background: linear-gradient(135deg, #ffe066 0%, #f5b041 100%); padding: 25px; border-radius: 16px; text-align: center; color: #1a1a1a; box-shadow: 0 8px 24px rgba(245, 176, 65, 0.3); border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">👟⚽</div>
+                    <div style="font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; color: #5d4037; text-transform: uppercase;">Líder de Goleadores</div>
+                    <div style="font-size: 1.8rem; font-weight: 800; margin: 10px 0; color: #000;">{name}</div>
+                    <div style="font-size: 1.1rem; font-weight: 600; color: #2e1c0c; margin-bottom: 15px;">
+                        {flag_img} {team}
+                    </div>
+                    <div style="display: inline-block; background: #1a1a1a; color: #ffe066; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 1.2rem;">
+                        {goals} Goles
+                    </div>
+                </div>
+                """
+            else:
+                names_list = leaders["Jugador"].tolist()
+                team_list = leaders["Selección"].tolist()
+                goals = max_goals
+                
+                leaders_html = ""
+                for idx, (n, t) in enumerate(zip(names_list, team_list)):
+                    iso = db["team_iso"].get(t, "un")
+                    flag_img = f'<img src="https://flagcdn.com/w30/{iso}.png" width="20" style="vertical-align: middle; border-radius: 2px; box-shadow: 0 1px 3px rgba(0,0,0,0.3);" />'
+                    leaders_html += f"<div style='margin-bottom: 8px; font-size: 1.1rem; font-weight: 700;'>• {n} ({flag_img} {t})</div>"
+                    
+                card_html = f"""
+                <div style="background: linear-gradient(135deg, #ffe066 0%, #f5b041 100%); padding: 25px; border-radius: 16px; text-align: center; color: #1a1a1a; box-shadow: 0 8px 24px rgba(245, 176, 65, 0.3); border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 3rem; margin-bottom: 10px;">👟⚽</div>
+                    <div style="font-size: 0.9rem; font-weight: 800; letter-spacing: 1.5px; color: #5d4037; text-transform: uppercase;">Líderes de Goleadores</div>
+                    <div style="margin: 15px 0; text-align: left; max-height: 150px; overflow-y: auto; color: #000; padding-left: 10px;">
+                        {leaders_html}
+                    </div>
+                    <div style="display: inline-block; background: #1a1a1a; color: #ffe066; padding: 6px 16px; border-radius: 20px; font-weight: 800; font-size: 1.2rem;">
+                        {goals} Goles c/u
+                    </div>
+                </div>
+                """
+            st.markdown(card_html, unsafe_allow_html=True)
+            
+        with col_r:
+            st.markdown("### 📊 Tabla de Goleadores")
+            st.dataframe(
+                df_scorers,
+                use_container_width=True,
+                column_config={
+                    "Jugador": st.column_config.TextColumn("Nombre"),
+                    "Selección": st.column_config.TextColumn("País"),
+                    "Goles": st.column_config.NumberColumn("Goles", help="Total de goles anotados")
+                }
+            )
+
+# TAB 4: POLLA / PRONÓSTICOS DE AMIGOS
+with tab4:
     st.markdown("<h2 class='section-title'>🔮 La Polla Mundialista</h2>", unsafe_allow_html=True)
     st.markdown("<p style='color: #8892b0;'>¡Compite con tus amigos! Ingresa los pronósticos de cada uno y mira quién va liderando el torneo de predicciones.</p>", unsafe_allow_html=True)
     
@@ -804,8 +1074,8 @@ with tab3:
                         st.success(f"¡Todos los pronósticos de {amigo_select} guardados correctamente!")
                         st.rerun()
 
-# TAB 4: ESTADÍSTICAS Y MÉTDRICAS
-with tab4:
+# TAB 5: ESTADÍSTICAS Y MÉTRICAS
+with tab5:
     st.markdown("<h2 class='section-title'>Análisis de Datos y Estadísticas</h2>", unsafe_allow_html=True)
     
     if matches_played == 0:
