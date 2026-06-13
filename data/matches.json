@@ -243,8 +243,8 @@
       "city": "Ciudad de México",
       "channel_free": "Chilevisión",
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
-      "goals_a": null,
-      "goals_b": null,
+      "goals_a": 2,
+      "goals_b": 0,
       "phase": "Fase de Grupos - Jornada 1"
     },
     {
@@ -258,8 +258,8 @@
       "city": "Nueva York/Nueva Jersey",
       "channel_free": null,
       "channel_pay": "DSports / DGO / Paramount+",
-      "goals_a": null,
-      "goals_b": null,
+      "goals_a": 2,
+      "goals_b": 1,
       "phase": "Fase de Grupos - Jornada 1"
     },
     {
@@ -273,8 +273,8 @@
       "city": "Los Ángeles",
       "channel_free": "Chilevisión",
       "channel_pay": "DSports / DGO / Paramount+",
-      "goals_a": null,
-      "goals_b": null,
+      "goals_a": 1,
+      "goals_b": 1,
       "phase": "Fase de Grupos - Jornada 1"
     },
     {
@@ -333,8 +333,8 @@
       "city": "Dallas",
       "channel_free": "Chilevisión",
       "channel_pay": "DSports / DGO / Paramount+ / Disney+ Premium",
-      "goals_a": null,
-      "goals_b": null,
+      "goals_a": 4,
+      "goals_b": 1,
       "phase": "Fase de Grupos - Jornada 1"
     },
     {
